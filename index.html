@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio AbdElaziz</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333;}
+    header {background:#333; color:#fff; padding:20px; text-align:center;}
+    nav a {color:#fff; margin:0 10px; text-decoration:none;}
+    section {padding:40px; opacity:0; transform:translateY(50px); transition:all 0.8s ease;}
+    .projects {display:flex; gap:20px; flex-wrap:wrap;}
+    .card {border:1px solid #ccc; padding:20px; width:30%; background:#fff; transition:transform 0.3s;}
+    .card:hover {transform:scale(1.05); box-shadow:0 4px 8px rgba(0,0,0,0.2);}
+    footer {background:#333; color:#fff; text-align:center; padding:10px;}
+    .fade-in {animation: fadeIn 2s ease-in-out;}
+    @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
+    .scroll-effect.active {opacity:1; transform:translateY(0);}
+    .whatsapp-btn {
+      display:inline-block;
+      padding:12px 20px;
+      background:#25D366;
+      color:#fff;
+      text-decoration:none;
+      border-radius:5px;
+      font-weight:bold;
+      transition:background 0.3s;
+    }
+    .whatsapp-btn:hover {background:#128C7E;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="fade-in">AbdElaziz – Front-End Developer</h1>
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" class="scroll-effect">
+    <h2>About Me</h2>
+    <p>Student at Egypt International Technological University – Information Technology Department. Focused on Front-End Development.</p>
+    <button id="toggleBtn">Show/Hide Details</button>
+    <div id="extraInfo" style="display:none;">
+      <p>I learn quickly and enjoy practical projects such as building responsive web pages and interactive user interfaces.</p>
+    </div>
+  </section>
+
+  <section id="projects" class="scroll-effect">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card"><h3>Experimental Web Page</h3><p>HTML/CSS/JS</p></div>
+      <div class="card"><h3>Responsive Portfolio</h3><p>Front-End Design</p></div>
+      <div class="card"><h3>Interactive UI Components</h3><p>JavaScript</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="scroll-effect">
+    <h2>Contact Me</h2>
+    <p>You can reach me directly on WhatsApp:</p>
+    <a href="https://wa.me/201025224167" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
+  </section>
+
+  <footer>
+    <p>© 2026 AbdElaziz</p>
+  </footer>
+
+  <script>
+    // Toggle extra info
+    document.getElementById("toggleBtn").addEventListener("click", function() {
+      const info = document.getElementById("extraInfo");
+      info.style.display = (info.style.display === "none") ? "block" : "none";
+    });
+
+    // Scroll effect
+    const sections = document.querySelectorAll(".scroll-effect");
+    window.addEventListener("scroll", () => {
+      sections.forEach(section => {
+        const position = section.getBoundingClientRect().top;
+        if (position < window.innerHeight - 100) {
+          section.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
